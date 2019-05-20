@@ -6,7 +6,7 @@ package com.kailaisi.eshopproductservice.model
  *<br/>创建时间：2019/5/16 11:15
  */
 class Category {
-    var id: Long? = null
+    var id: Long = 0
     lateinit var name: String
     lateinit var description: String
 }

@@ -9,8 +9,8 @@ import com.kailaisi.eshopproductservice.model.ProductProperty
  *<br/>创建时间：2019/5/15 17:06
  */
 interface ProductPropertyService {
-    fun add(productproperty: ProductProperty)
+    fun add(productProperty: ProductProperty)
     fun delete(id: Long)
-    fun update(productproperty: ProductProperty)
+    fun update(productProperty: ProductProperty)
     fun findById(id: Long): ProductProperty
 }
