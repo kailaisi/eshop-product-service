@@ -24,19 +24,19 @@ class CategoryServiceImpl : CategoryService {
 
     override fun add(category: Category) {
         categoryMapper.addCategory(category)
-        val queueInfo = DataChange("add", "category", category.id)
+        val queueInfo = DataChange("add", "category", category.id,null)
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 
     override fun delete(id: Long) {
         categoryMapper.delete(id)
-        val queueInfo = DataChange("delete", "category", id)
+        val queueInfo = DataChange("delete", "category", id,null)
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 
     override fun update(category: Category) {
         categoryMapper.update(category)
-        val queueInfo = DataChange("delete", "category", category.id)
+        val queueInfo = DataChange("delete", "category", category.id,null)
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 

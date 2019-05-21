@@ -24,19 +24,19 @@ class ProductPropertyServiceImpl : ProductPropertyService {
 
     override fun add(productProperty: ProductProperty) {
         mapper.add(productProperty)
-        val queueInfo = DataChange("add", "productProperty", productProperty.id)
+        val queueInfo = DataChange("add", "productProperty", productProperty.id, productProperty.productId)
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 
     override fun delete(id: Long) {
         mapper.delete(id)
-        val queueInfo = DataChange("delete", "productProperty", id)
+        val queueInfo = DataChange("delete", "productProperty", id, findById(id).productId)
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 
     override fun update(productProperty: ProductProperty) {
         mapper.update(productProperty)
-        val queueInfo = DataChange("update", "productProperty", productProperty.id)
+        val queueInfo = DataChange("update", "productProperty", productProperty.id, productProperty.productId)
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 

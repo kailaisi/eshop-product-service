@@ -25,19 +25,19 @@ class BrandServiceImpl : BrandService {
 
     override fun add(brand: Brand) {
         brandMapper.addBrand(brand)
-        val queueInfo = DataChange("add", "brand", brand.id)
+        val queueInfo = DataChange("add", "brand", brand.id,null)
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 
     override fun delete(id: Long) {
         brandMapper.delete(id)
-        val queueInfo = DataChange("delete", "brand", id)
+        val queueInfo = DataChange("delete", "brand", id,null)
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 
     override fun update(brand: Brand) {
         brandMapper.update(brand)
-        val queueInfo = DataChange("update", "brand", brand.id)
+        val queueInfo = DataChange("update", "brand", brand.id,null)
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 
