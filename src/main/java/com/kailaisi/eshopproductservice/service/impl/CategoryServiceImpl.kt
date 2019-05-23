@@ -36,7 +36,7 @@ class CategoryServiceImpl : CategoryService {
 
     override fun update(category: Category) {
         categoryMapper.update(category)
-        val queueInfo = DataChange("delete", "category", category.id,null)
+        val queueInfo = DataChange("update", "category", category.id,null)
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 

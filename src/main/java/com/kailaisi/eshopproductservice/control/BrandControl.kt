@@ -28,6 +28,7 @@ class BrandControl {
     @ResponseBody
     fun update(@RequestBody brand: Brand): String {
         brandService.update(brand)
+        println("接收到请求$brand")
         return "success"
     }
 
@@ -41,6 +42,12 @@ class BrandControl {
     @RequestMapping("/findById")
     @ResponseBody
     fun findById(id: Long): Brand {
+        return brandService.findById(id)
+    }
+
+    @RequestMapping("/findByIds")
+    @ResponseBody
+    fun findByIds(id: Long): Brand {
         return brandService.findById(id)
     }
 }

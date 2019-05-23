@@ -15,7 +15,7 @@ class Category {
  *品牌
  */
 class Brand {
-    var id: Long = 0
+    var id: Long ?= null
     lateinit var name: String
     lateinit var description: String
 }

@@ -8,6 +8,8 @@ package com.kailaisi.eshopproductservice.rabbitmq
 class RabbitQueue {
     companion object {
         val DATA_CHANGE_QUEUE: String = "data-change-queue"
+        val HIGH_PRIORITY_DATA_CHANGE_QUEUE: String = "high-priority-data-change-queue"
+        val REFRESH_DATA_CHANGE_QUEUE: String = "refresh-data-change-queue"
     }
 }
 
