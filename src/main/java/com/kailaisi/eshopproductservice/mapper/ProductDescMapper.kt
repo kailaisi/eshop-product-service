@@ -24,4 +24,10 @@ interface ProductDescMapper {
             Result(column = "product_id", property = "productId")
     )
     fun findById(id: Long): ProductDesc
+
+    @Select("select * from product_desc where product_id=#{id}")
+    @Results(
+            Result(column = "product_id", property = "productId")
+    )
+    fun findByProductId(id: Long): List<ProductDesc>
 }

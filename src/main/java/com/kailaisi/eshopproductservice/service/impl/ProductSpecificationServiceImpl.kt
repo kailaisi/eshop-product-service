@@ -41,4 +41,6 @@ class ProductSpecificationServiceImpl : ProductSpecificationService {
     }
 
     override fun findById(id: Long): ProductSpecification = mapper.findById(id)
+    override fun findByProductId(id: Long): List<ProductSpecification> =mapper.findByProductId(id)
+
 }

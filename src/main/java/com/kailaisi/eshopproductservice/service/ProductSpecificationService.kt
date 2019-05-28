@@ -13,4 +13,5 @@ interface ProductSpecificationService {
     fun delete(id: Long)
     fun update(productSpecification: ProductSpecification)
     fun findById(id: Long): ProductSpecification
+    fun findByProductId(id: Long): List<ProductSpecification>
 }

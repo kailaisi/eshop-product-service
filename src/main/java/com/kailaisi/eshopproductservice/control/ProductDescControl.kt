@@ -46,4 +46,10 @@ class ProductDescControl {
     fun findById(id: Long): ProductDesc {
         return mService.findById(id)
     }
+
+    @RequestMapping("/findByProductId")
+    @ResponseBody
+    fun findByProductId(id: Long): List<ProductDesc> {
+        return mService.findByProductId(id)
+    }
 }

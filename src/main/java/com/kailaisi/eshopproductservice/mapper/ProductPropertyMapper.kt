@@ -24,4 +24,10 @@ interface ProductPropertyMapper {
             Result(column = "product_id", property = "productId")
     )
     fun findById(id: Long): ProductProperty
+
+    @Select("select * from product_property where product_id=#{id}")
+    @Results(
+            Result(column = "product_id", property = "productId")
+    )
+    fun findByProductId(id: Long): List<ProductProperty>
 }

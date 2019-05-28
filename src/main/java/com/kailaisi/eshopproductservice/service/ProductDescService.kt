@@ -13,4 +13,5 @@ interface ProductDescService {
     fun delete(id: Long)
     fun update(productDesc: ProductDesc)
     fun findById(id: Long): ProductDesc
+    fun findByProductId(id: Long): List<ProductDesc>
 }

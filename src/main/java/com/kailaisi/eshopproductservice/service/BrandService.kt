@@ -14,4 +14,5 @@ interface BrandService {
     fun delete(id: Long)
     fun update(brand: Brand)
     fun findById(id: Long): Brand
+    fun findByIds(id: String): List<Brand>
 }

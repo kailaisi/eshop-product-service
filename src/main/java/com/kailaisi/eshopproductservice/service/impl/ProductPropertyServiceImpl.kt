@@ -17,6 +17,8 @@ import org.springframework.stereotype.Service
  */
 @Service
 class ProductPropertyServiceImpl : ProductPropertyService {
+
+
     @Autowired
     lateinit var mapper: ProductPropertyMapper
     @Autowired
@@ -41,4 +43,5 @@ class ProductPropertyServiceImpl : ProductPropertyService {
     }
 
     override fun findById(id: Long): ProductProperty = mapper.findById(id)
+    override fun findByProductId(id: Long): List<ProductProperty> =mapper.findByProductId(id)
 }

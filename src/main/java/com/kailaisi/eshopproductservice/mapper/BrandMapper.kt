@@ -21,4 +21,9 @@ interface BrandMapper {
 
     @Select("select * from brand where id=#{id}")
     fun findById(id: Long): Brand
+
+    @Select("select * from brand where id in (\${ids})")
+    fun findByIds(@Param("ids") ids: String): List<Brand>
+
+
 }

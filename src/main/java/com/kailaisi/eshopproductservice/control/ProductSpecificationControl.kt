@@ -1,5 +1,6 @@
 package com.kailaisi.eshopproductservice.control
 
+import com.kailaisi.eshopproductservice.model.ProductProperty
 import com.kailaisi.eshopproductservice.model.ProductSpecification
 import com.kailaisi.eshopproductservice.service.ProductSpecificationService
 import org.springframework.beans.factory.annotation.Autowired
@@ -45,5 +46,11 @@ class ProductSpecificationControl {
     @ResponseBody
     fun findById(id: Long): ProductSpecification {
         return mService.findById(id)
+    }
+
+    @RequestMapping("/findByProductId")
+    @ResponseBody
+    fun findByProductId(id: Long): List<ProductSpecification> {
+        return mService.findByProductId(id)
     }
 }

@@ -47,7 +47,7 @@ class BrandControl {
 
     @RequestMapping("/findByIds")
     @ResponseBody
-    fun findByIds(id: Long): Brand {
-        return brandService.findById(id)
+    fun findByIds(id: String): List<Brand> {
+        return brandService.findByIds(id)
     }
 }

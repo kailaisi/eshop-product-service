@@ -24,4 +24,9 @@ interface ProductSpecificationMapper {
             Result(column = "product_id", property = "productId")
     )
     fun findById(id: Long): ProductSpecification
+    @Select("select * from product_specification where product_id=#{id}")
+    @Results(
+            Result(column = "product_id", property = "productId")
+    )
+    fun findByProductId(id: Long): List<ProductSpecification>
 }

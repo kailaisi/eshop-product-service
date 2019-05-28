@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service
  */
 @Service
 class ProductDescServiceImpl : ProductDescService {
+
     @Autowired
     lateinit var mapper: ProductDescMapper
     @Autowired
@@ -40,6 +41,7 @@ class ProductDescServiceImpl : ProductDescService {
         rabbitMQSender.send(RabbitQueue.DATA_CHANGE_QUEUE, FastJsonUtil.bean2Json(queueInfo))
     }
 
-
     override fun findById(id: Long): ProductDesc = mapper.findById(id)
+    override fun findByProductId(id: Long): List<ProductDesc> = mapper.findByProductId(id)
+
 }

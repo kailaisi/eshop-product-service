@@ -13,4 +13,5 @@ interface ProductPropertyService {
     fun delete(id: Long)
     fun update(productProperty: ProductProperty)
     fun findById(id: Long): ProductProperty
+    fun findByProductId(id: Long): List<ProductProperty>
 }
