@@ -1,0 +1,20 @@
+server:
+  port: 8762
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: product-server
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    platform: mysql
+    url: jdbc:mysql://192.168.11.17:3306/eshop
+    username: root
+    password: 123456
+  rabbitmq:
+    host: 192.168.11.14
+    port: 5672
+    username: rabbitadmin
+    password: 123456
